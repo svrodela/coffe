@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load tailwind_filters %}
+
+{% block content %}
+
+
+
+
+    <div class="p-10">
+        <h1 class="mb-8 font-extrabold text-4xl">Registro</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    
+            <form action="" method="post">
+                {% csrf_token %} 
+                {{form|crispy}}
+                  
+                <div class="flex items-center justify-between mt-8">
+                    <button type="submit" class="flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">
+                        Registrar</button>
+                    <a class="font-semibold" href="{% url "login" %}">
+                        Ya estás registrado? &rarr;
+                    </a>
+                </div>
+            </form>
+    
+            <aside class="">
+                <div class="bg-gray-100 p-8 rounded">
+                    <h2 class="font-bold text-2xl">Instrucciones</h2>
+                    <ul class="list-disc mt-4 list-inside">
+                        <li>Su contraseña no puede ser muy similar a su otra información personal</li>
+                        <li>Su contraseña es muy corta. Debe contener al menos 8 caracteres.</li>
+                        <li>Su contraseña no puede ser una contraseña de uso común.</li>
+                        <li>Su contraseña no puede ser completamente numérica.</li>
+                    </ul>
+                </div>
+            </aside>
+    
+        </div>
+    </div>
+{% endblock content %}

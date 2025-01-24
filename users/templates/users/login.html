@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load tailwind_filters %}
+
+{% block content %}
+
+
+
+<div class="bg-white px-10 py-8 rounded-xl w-screen shadow-xl max-w-sm">
+    <div class="space-y-4">
+        <h1 class="text-center text-2xl font-semibold text-gray-600">Login</h1>
+        <hr>
+        <form action="" method="post">
+            {% csrf_token %} 
+            {{form|crispy}}
+        
+            <button
+              class="group inline-block rounded bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75"
+              type="submit"
+            >
+            <button type="submit" value="login" id="login" class="mt-6 w-full shadow-xl bg-gradient-to-tr from-blue-600 to-red-400 hover:to-red-700 text-indigo-100 py-2 rounded-md text-lg tracking-wide transition duration-1000">Login</button>
+    
+        
+        </form>
+    </div>
+    <!-- Remember Me checkbox -->
+    <div class="flex justify-center items-center mt-4">
+        <p class="inline-flex items-center text-gray-700 font-medium text-xs text-center">
+            <input type="checkbox" id="rememberMeCheckbox" name="rememberMe" class="mr-2">
+            <span class="text-xs font-semibold">Recordarme?</span>
+        </p>
+    </div>
+ <hr>
+    <div class="flex justify-center items-center mt-4">
+        <p class="inline-flex items-center text-gray-700 font-medium text-xs text-center">
+            <span class="ml-2">No tienes cuenta?<a href="{% url "register" %}" class="text-xs ml-2 text-blue-500 font-semibold">Registrate ahora &rarr;</a>
+            </span>
+        </p>
+    </div>
+</div>
+<div class="pt-6 text-base font-semibold leading-7">
+    <p class="font-sans text-red-500 text-md hover:text-red-800">
+    <a href="/" class="absolute">&larr; Inicio</a>
+    </p>
+</div>
+
+{% endblock content %}
